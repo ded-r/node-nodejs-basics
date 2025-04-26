@@ -1,5 +1,16 @@
+import fs from "fs";
+import path from "path";
+
 const read = async () => {
-    // Write your code here 
+    const filePath = path.join(import.meta.dirname, "files/fileToRead.txt");
+
+    fs.readFile(filePath, "utf8", (err, data) => {
+        if (err) {
+            throw new Error("FS operation failed");
+        } else {
+            console.log(data);
+        }
+    });
 };
 
 await read();
